@@ -56,12 +56,21 @@ def drawBarChart(dayDict):
 	plt.savefig('bar.png')
 
 ## [Part 3]
-## Create unittests to test the function
-# Finish writing the unittests.  Write the setUp function which will create the database connection 
-# to 'tweets.sqlite' and the cursor.  Write the tearDown function which closes the database connection.  
-# Write the test_getDayDict function to test getDayDict by comparing the returned dictionary to the 
-# expected value.  Also call drawBarChart in test_getDayDict. 
 class TestHW10(unittest.TestCase):
+	def setUp(self):
+		self.conn = sqlite3.connect('tweets.sqlite')
+		self.cur = self.conn.cursor()
+	def test_getDayDict(self):
+		days = getDayDict(self.cur)
+		self.assertEqual(days["Mon"], 69)
+		self.assertEqual(days["Tue"], 77)
+		drawBarChart(days)
+	def tearDown(self):
+		self.conn.close()
+
+
+if __name__ == "__main__":
+    unittest.main(verbosity=2)
 
 # run the main method
 if __name__ == "__main__":
