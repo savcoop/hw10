@@ -71,7 +71,3 @@ class TestHW10(unittest.TestCase):
 
 if __name__ == "__main__":
     unittest.main(verbosity=2)
-
-# run the main method
-if __name__ == "__main__":
-    unittest.main(verbosity=2)
