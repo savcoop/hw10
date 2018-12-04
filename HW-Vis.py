@@ -44,14 +44,16 @@ def getDayDict(cur):
 	retun(dayDict)
   
 ## [Part 2]
-# Finish writing the function drawBarChart which takes the dictionary and draws a bar 
-# chart with the days of the week on the x axis and the number of tweets on the named day on 
-# the y axis.  The chart must have an x label, y label, and title.  Save the chart to 
-# "bar.png" and submit it on canvas.  
-#
-# dayDict - a dictionary with the days of the week and the number of tweets per day
 def drawBarChart(dayDict):
-    pass
+	def drawBarChart(dayDict):
+	day_list = dayDict.keys()
+	tweet_list = dayDict.values()
+
+	plt.bar(day_list,tweet_list)
+	plt.title("Number of Tweets Per Week Day")
+	plt.xlabel("Week Day")
+	plt.ylabel("Number of Tweets")
+	plt.savefig('bar.png')
 
 ## [Part 3]
 ## Create unittests to test the function
