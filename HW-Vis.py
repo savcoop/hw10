@@ -4,6 +4,12 @@ import sqlite3
 import twitter_info # still need this in the same directory, filled out
 import matplotlib.pyplot as plt
 
+# Import statements
+import unittest
+import sqlite3
+import twitter_info # still need this in the same directory, filled out
+import matplotlib.pyplot as plt
+
 ## [PART 1]
 def getDayDict(cur):
 	cur.execute('SELECT time_posted FROM Tweets')
@@ -41,11 +47,10 @@ def getDayDict(cur):
 	dayDict["Fri"] = fri
 	dayDict["Sat"] = sat
 
-	retun(dayDict)
-  
+	return(dayDict)
+
 ## [Part 2]
 def drawBarChart(dayDict):
-	def drawBarChart(dayDict):
 	day_list = dayDict.keys()
 	tweet_list = dayDict.values()
 
@@ -54,6 +59,8 @@ def drawBarChart(dayDict):
 	plt.xlabel("Week Day")
 	plt.ylabel("Number of Tweets")
 	plt.savefig('bar.png')
+	#plt.show()
+
 
 ## [Part 3]
 class TestHW10(unittest.TestCase):
@@ -67,7 +74,6 @@ class TestHW10(unittest.TestCase):
 		drawBarChart(days)
 	def tearDown(self):
 		self.conn.close()
-
 
 if __name__ == "__main__":
     unittest.main(verbosity=2)
