@@ -4,12 +4,6 @@ import sqlite3
 import twitter_info # still need this in the same directory, filled out
 import matplotlib.pyplot as plt
 
-# Import statements
-import unittest
-import sqlite3
-import twitter_info # still need this in the same directory, filled out
-import matplotlib.pyplot as plt
-
 ## [PART 1]
 def getDayDict(cur):
 	cur.execute('SELECT time_posted FROM Tweets')
